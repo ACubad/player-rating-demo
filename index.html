@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Player Rankings</title>
+    <!-- Linking the CSS file -->
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-database-compat.js"></script>   
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+      <h1>Top Football Player Rankings</h1>
+      <button id="reset-button" class="reset-button">Reset Votes</button>
+      <select id="filter-dropdown-primary" class="filter-dropdown">
+        <option value="votes">Primary: Votes</option>
+        <option value="rank">Primary: Rank</option>
+        <option value="goals">Primary: Goals</option>
+      </select>
+      <select id="filter-dropdown-secondary" class="filter-dropdown">
+        <option value="">Secondary: None</option>
+        <option value="votes">Votes</option>
+        <option value="rank">Rank</option>
+        <option value="goals">Goals</option>
+      </select>
+      <button id="sort-toggle" class="sort-toggle">Ascending</button>
+      <button id="dark-mode-toggle" class="dark-mode-toggle">Dark Mode</button>
+    </header>
+  
+
+    <!-- Leaderboard Section -->
+    <section id="leaderboard" class="leaderboard">
+        <h2>Top 3 Players</h2>
+        <div id="leaderboard-grid"></div>
+    </section>
+
+    <!-- Main Section -->
+    <main id="player-grid">
+        <!-- Player cards will go here -->
+    </main>
+
+    <!-- Linking the JavaScript file -->
+    <script src="script.js"></script>
+</body>
+
+</html>

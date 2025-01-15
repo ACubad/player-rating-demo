@@ -1,0 +1,328 @@
+/* Player Grid */
+#player-grid {
+  display: grid; /* Enables grid layout */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Default responsive columns */
+  gap: 1rem; /* Adds spacing between cards */
+  padding: 1rem; /* Adds space around the grid */
+  box-sizing: border-box; /* Include padding in grid size */
+}
+
+/* Media Queries for Smaller Devices */
+@media (max-width: 768px) {
+  #player-grid {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Smaller columns */
+      gap: 0.8rem; /* Reduce spacing */
+  }
+
+  .player-photo {
+      max-width: 80px; /* Reduce image size */
+  }
+
+  .vote-button {
+      padding: 0.4rem 0.8rem; /* Adjust button size */
+      font-size: 0.8rem; /* Reduce font size */
+  }
+}
+
+@media (max-width: 480px) {
+  #player-grid {
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Stack cards tightly */
+      gap: 0.5rem; /* Further reduce spacing */
+  }
+
+  .player-photo {
+      max-width: 60px; /* Further reduce image size */
+  }
+
+  .vote-button {
+      padding: 0.3rem 0.6rem; /* Compact button size */
+      font-size: 0.7rem; /* Smaller font size */
+  }
+}
+
+
+
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif; /* Sets a clean, modern font */
+  margin: 0; /* Removes default browser margins */
+  padding: 0; /* Removes default browser padding */
+  background-color: #f4f4f9; /* Light background color */
+  color: #333; /* Dark gray text color */
+  line-height: 1.6; /* Improves readability */
+}
+
+html, body {
+  height: 100%; /* Ensures the body fills the full viewport height */
+  margin: 0; /* Removes any default margin */
+}
+
+button, select {
+  padding: 0.6rem 1.2rem; /* Larger padding for touch devices */
+  font-size: 1rem; /* Maintain readability */
+  border-radius: 8px; /* Slightly larger corner radius */
+}
+
+.vote-button {
+  margin-top: 0.5rem; /* Add space above vote buttons */
+}
+
+@media (max-width: 768px) {
+  button, select {
+      padding: 0.5rem 1rem; /* Adjust padding for tablets */
+      font-size: 0.9rem; /* Slightly smaller font */
+  }
+}
+
+@media (max-width: 480px) {
+  button, select {
+      padding: 0.4rem 0.8rem; /* Compact padding for mobile */
+      font-size: 0.8rem; /* Smaller font size */
+  }
+}
+
+html {
+  scroll-behavior: smooth; /* Enables smooth scrolling */
+}
+
+
+/* Header Styles */
+header {
+  position: sticky; /* Makes the header stick to the top */
+  top: 0; /* Sticks the header to the top of the viewport */
+  z-index: 100; /* Ensures it stays above other content */
+  background-color: #6200ea; /* Keep the purple background */
+  color: white; /* White text for visibility */
+  padding: 1rem; /* Adds spacing */
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space out elements */
+  align-items: center; /* Vertically align elements */
+  gap: 1rem; /* Add space between children */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+header select,
+header button {
+  margin-left: auto; /* Pushes buttons to the right */
+}
+
+
+/* Player Grid */
+#player-grid {
+  display: grid; /* Enables grid layout */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive columns */
+  gap: 1rem; /* Adds spacing between cards */
+  padding: 1rem; /* Adds space around the grid */
+  box-sizing: border-box; /* Include padding in the grid size */
+}
+
+
+/* Player Cards */
+/*.player-card {
+  display: flex; /* Use flexbox for dynamic layout */
+  /*flex-direction: column; /* Stack content vertically */
+  /*align-items: center; /* Center-align content horizontally */
+  /*justify-content: space-between; /* Space out elements vertically */
+  /*background: white; /* White card background */
+  /*border-radius: 8px; /* Rounded corners */
+  /*box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  /*padding: 1rem; /* Adds space inside the card */
+  /*text-align: center; /* Centers the content */
+  /*transition: transform 0.3s ease; /* Smooth hover animation */
+  /*width: 100%; /* Ensure the card fills its grid cell */
+  /*height: auto; /* Allow the card to grow dynamically */
+  /*box-sizing: border-box; /* Include padding in the card's size */
+  /*overflow: hidden; /* Prevent elements from overflowing the card */
+/*}*/
+
+.player-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transform and opacity changes */
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.player-card.fade-out {
+  opacity: 0; /* Fade out when removing */
+  transform: scale(0.9); /* Shrink slightly */
+}
+
+.player-card.fade-in {
+  opacity: 1; /* Fade in when adding */
+  transform: scale(1); /* Restore size */
+}
+
+
+.player-card:hover {
+  transform: scale(1.05); /* Slightly enlarges the card on hover */
+}
+
+
+/* Player Name */
+.player-name {
+  font-size: 1.2rem; /* Slightly larger font */
+  font-weight: bold; /* Bold text */
+  margin-bottom: 0.5rem; /* Space below the name */
+}
+
+/* Player Stats */
+.player-stats {
+  font-size: 0.9rem; /* Smaller text for stats */
+  color: #555; /* Lighter gray color */
+}
+
+/* Player Photo Styles */
+.player-photo {
+  width: 80%; /* Reduce the width to prevent overlapping */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 120px; /* Set a maximum width to keep consistency */
+  border-radius: 50%; /* Create a circular crop */
+  object-fit: cover; /* Ensure the image fills the defined size */
+  margin-bottom: 1rem; /* Add spacing below the image */
+}
+
+.vote-button {
+  background-color: #6200ea; /* Purple background */
+  color: white; /* White text */
+  border: none; /* Remove borders */
+  border-radius: 5px; /* Rounded corners */
+  padding: 0.5rem 1rem; /* Add some padding */
+  font-size: 0.9rem; /* Adjust font size */
+  cursor: pointer; /* Show pointer on hover */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.vote-button:hover {
+  background-color: #3700b3; /* Darker purple on hover */
+}
+
+.player-card.highlight {
+  animation: highlight 0.5s ease-out;
+}
+
+@keyframes highlight {
+  0% {
+    box-shadow: 0 0 10px #6200ea, 0 0 20px #6200ea;
+  }
+  100% {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.reset-button {
+  background-color: #ff4c4c; /* Red background */
+  color: white; /* White text */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 0.5rem 1rem; /* Add some padding */
+  font-size: 1rem; /* Adjust font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  margin-top: 0.5rem; /* Add spacing below the header */
+  transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.reset-button:hover {
+  background-color: #cc0000; /* Darker red on hover */
+}
+
+.filter-dropdown {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-left: 1rem;
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+
+.sort-toggle {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-left: 1rem;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sort-toggle:hover {
+  background-color: #eaeaea;
+}
+
+
+/* Leaderboard Styles */
+.leaderboard {
+  background-color: #6200ea; /* Purple background */
+  color: white; /* White text */
+  padding: 1rem; /* Add space inside the section */
+  margin-bottom: 1rem; /* Add space below the leaderboard */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.leaderboard h2 {
+  text-align: center; /* Center-align the title */
+  margin-bottom: 1rem; /* Add space below the title */
+}
+
+#leaderboard-grid {
+  display: flex; /* Flex layout for the grid */
+  justify-content: space-around; /* Space out the top 3 players */
+  gap: 1rem; /* Add space between cards */
+}
+
+.leaderboard-card {
+  background: white; /* White card background */
+  color: #333; /* Dark text */
+  border-radius: 8px; /* Rounded corners */
+  padding: 1rem; /* Add space inside the card */
+  text-align: center; /* Center-align content */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  flex: 1; /* Equal size for each card */
+  max-width: 200px; /* Limit the card width */
+}
+
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #121212; /* Dark background */
+  color: #ffffff; /* Light text */
+}
+
+header.dark-mode {
+  background-color: #1e1e1e; /* Darker header background */
+}
+
+.leaderboard.dark-mode {
+  background-color: #1e1e1e; /* Darker leaderboard background */
+  color: #ffffff; /* Light text */
+}
+
+.player-card.dark-mode {
+  background-color: #1e1e1e; /* Darker card background */
+  color: #ffffff; /* Light text */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+}
+
+button.dark-mode {
+  background-color: #333333; /* Darker button background */
+  color: #ffffff; /* Light text */
+  border: 1px solid #555555; /* Subtle border */
+}
+
+button.dark-mode:hover {
+  background-color: #444444; /* Slightly lighter on hover */
+}
+
+
